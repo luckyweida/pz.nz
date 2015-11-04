@@ -9,4 +9,4 @@ RewriteRule ^pz_login/?$ /pz.php [L,QSA,B]
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^.*$ /web.php [L,QSA,B]
+RewriteRule ^.*$ /index.php [L,QSA,B]
