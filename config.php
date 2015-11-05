@@ -10,8 +10,11 @@ define('DOMAIN', 'http://' . $_SERVER['HTTP_HOST']);
 define('DEBUG_ENABLED', true);
 error_reporting(E_ALL);
 
+
+define('CMS', __DIR__ . '/../../../cms/v1.0/');
+
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'pozo');
+define('DB_NAME', 'ckywgma30362com38023_pz');
 define('DB_USER', 'root');
 define('DB_PASS', 'er1c550n');
 define('DB_CHAR', 'utf8');
