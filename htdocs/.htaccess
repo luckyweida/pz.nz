@@ -3,7 +3,7 @@ Options +FollowSymlinks
 RewriteEngine on
 RewriteBase /
 
-RewriteCond %{REQUEST_URI}  !\.(php|html?|jpg|gif|png|css|js|xml)$
+RewriteCond %{REQUEST_URI}  !\.(php|html?|jpg|gif|png|css|js|xml|eot|woff|woff2|ttf|svg)$
 RewriteRule ^(.*)([^/])$ http://%{HTTP_HOST}/$1$2/ [L,R=301]
 
 RewriteCond %{REQUEST_FILENAME} !-f

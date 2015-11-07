@@ -4,7 +4,7 @@ define('CLIENT', 'Pozo Software Ltd');
 
 ini_set('magic_quotes_sybase', 0);
 date_default_timezone_set('Pacific/Auckland');
-define('CDN', 'http://index.net.nz/pozo');
+define('CDN', 'http://192.168.20.121:3003/pozo');
 define('DOMAIN', 'http://localhost:3011');
 
 define('DEBUG_ENABLED', true);

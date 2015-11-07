@@ -4,7 +4,7 @@ require_once CMS . 'vendor/autoload.php';
 $config = new \Doctrine\ORM\Configuration();
 $config->setMetadataCacheImpl(new \Doctrine\Common\Cache\ArrayCache());
 $driverImpl = $config->newDefaultAnnotationDriver(array(
-    CMS . "vendor/luckyweida/pz"
+    CMS . "vendor/luckyweida/pz/src/"
 ), false);
 $config->setMetadataDriverImpl($driverImpl);
 $config->setProxyDir(__DIR__ . '/../cache/Proxies');
