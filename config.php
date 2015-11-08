@@ -3,6 +3,7 @@
 ini_set('magic_quotes_sybase', 0);
 date_default_timezone_set('Pacific/Auckland');
 define('CDN', 'http://final.nz');
+//define('CDN', 'http://192.168.20.121:3003/pozo');
 define('CMS', __DIR__ . '/../../cms/v1.0/');
 if (isset($_SERVER['HTTP_HOST'])) {
     define('DOMAIN', 'http://' . $_SERVER['HTTP_HOST']);
