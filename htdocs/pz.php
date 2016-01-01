@@ -8,9 +8,13 @@ use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 use Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider;
 
 $loader = require CMS . 'vendor/autoload.php';
+//TODO: fix pz spacename
 $loader->add('Pz', CMS . 'vendor/luckyweida/pz/src');
+if (defined(DEFAULT_NAMESPACE)) {
+    $loader->add(DEFAULT_NAMESPACE, '../src');
+}
 
-$app = new Silex\Application();
+$app = new Pz\Application();
 $app['debug'] = DEBUG_ENABLED;
 
 require CMS . 'vendor/luckyweida/pz/metadata.php';

@@ -8,13 +8,14 @@ define('CMS', __DIR__ . '/../../cms/v1.0/');
 if (isset($_SERVER['HTTP_HOST'])) {
     define('DOMAIN', 'http://' . $_SERVER['HTTP_HOST']);
 }
+define('DEFAULT_NAMESPACE', 'Site');
 
-define('DEBUG_ENABLED', true);
-error_reporting(E_ALL);
 
 define('DEV', true);
+define('DEBUG_ENABLED', DEV);
 if (DEV) {
     //dev
+    error_reporting(E_ALL);
     define('DB_HOST', 'localhost');
     define('DB_NAME', 'ckywgma30362com38023_pz');
     define('DB_USER', 'root');
@@ -44,5 +45,3 @@ if (DEV) {
 }
 
 define('CLIENT', 'Pozo Software Ltd');
-
-
