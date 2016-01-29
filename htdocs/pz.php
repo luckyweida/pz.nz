@@ -7,12 +7,15 @@ use Silex\Provider;
 use Symfony\Component\Security\Core\Encoder\MessageDigestPasswordEncoder;
 use Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationProvider;
 
+
 $loader = require CMS . 'vendor/autoload.php';
 //TODO: fix pz spacename
-$loader->add('Pz', CMS . 'vendor/luckyweida/pz/src');
 if (defined(DEFAULT_NAMESPACE)) {
     $loader->add(DEFAULT_NAMESPACE, '../src');
 }
+$loader->add('Pz', CMS . 'vendor/luckyweida/pz/src');
+//$loader->add('Site', __DIR__ . '/../src');
+
 
 $app = new Pz\Application();
 $app['debug'] = DEBUG_ENABLED;
@@ -113,7 +116,11 @@ $app['security.authentication_provider.dao._proto'] = $app->protect(function ($n
 // $app->mount('/Pz/assets', new Pz\Controllers\AssetCSP($app, array()));
 // $app->mount('/Pz/contents', new Pz\Controllers\ContentCSP($app, array()));
 
-$app->mount('/pz/models', new Pz\Controllers\Model($app, array()));
+
+$app->register(new \Pz\Services\Generic());
+
+$app->mount('/pz/model', new Pz\Controllers\Model($app, array()));
+$app->mount('/pz/content', new Pz\Controllers\Content($app, array()));
 
 $app->mount('/pz', new Pz\Controllers\HomeCSP($app, array()));
 $app->mount('/pz_login', new Pz\Controllers\LoginCSP($app, array()));

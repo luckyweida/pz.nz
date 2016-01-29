@@ -44,4 +44,4 @@ if (DEV) {
     define('IMAGICK', 'convert');
 }
 
-define('CLIENT', 'Pozo Software Ltd');
+define('CLIENT', 'PZ');
