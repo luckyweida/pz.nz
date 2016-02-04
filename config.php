@@ -9,7 +9,7 @@ if (isset($_SERVER['HTTP_HOST'])) {
     define('DOMAIN', 'http://' . $_SERVER['HTTP_HOST']);
 }
 define('DEFAULT_NAMESPACE', 'Site');
-
+define('HOME_DIR', __DIR__);
 
 define('DEV', true);
 define('DEBUG_ENABLED', DEV);

@@ -10,11 +10,8 @@ use Symfony\Component\Security\Core\Authentication\Provider\DaoAuthenticationPro
 
 $loader = require CMS . 'vendor/autoload.php';
 //TODO: fix pz spacename
-if (defined(DEFAULT_NAMESPACE)) {
-    $loader->add(DEFAULT_NAMESPACE, '../src');
-}
 $loader->add('Pz', CMS . 'vendor/luckyweida/pz/src');
-//$loader->add('Site', __DIR__ . '/../src');
+$loader->add('Site', __DIR__ . '/../src');
 
 
 $app = new Pz\Application();
@@ -69,53 +66,31 @@ $connectionOptions = array(
 );
 $app['em'] = \Doctrine\ORM\EntityManager::create($connectionOptions, $config);
 
-// $app->register(new Silex\Provider\SecurityServiceProvider(), array(
-// 	'security.firewalls' => array(
-// 		'Pz' => array(
-// 			'pattern' => '^/Pz/',
-// 			'logout' => array(
-// 				'logout_path' => '/Pz/logout',
-// 				'target_url' => '/Pz_login'
-// 			),
-// 			'form' => array(
-// 				'login_path' => '/Pz_login',
-// 				'check_path' => '/Pz/login_check',
-// 				'default_target_path' => '/Pz'
-// 			),
-// 			'users' => $app->share(function () use($app) {
-// 				return new Pz\Users\UserProvider($app['em']);
-// 			})
-// 		)
-// 	)
-// ));
+$app->register(new Silex\Provider\SecurityServiceProvider(), array(
+    'security.firewalls' => array(
+        'pz' => array(
+            'pattern' => '^/pz/',
+            'logout' => array(
+                'logout_path' => '/pz/logout/',
+                'target_url' => '/pz_login/'
+            ),
+            'form' => array(
+                'login_path' => '/pz_login/',
+                'check_path' => '/pz/login_check/',
+                'default_target_path' => '/pz/'
+            ),
+            'users' => $app->share(function () use ($app) {
+                return new Pz\Users\UserProvider($app['em']);
+            })
+        )
+    )
+));
 
 $app['security.authentication_provider.dao._proto'] = $app->protect(function ($name) use($app) {
     return $app->share(function () use($app, $name) {
         return new DaoAuthenticationProvider($app['security.user_provider.' . $name], $app['security.user_checker'], $name, $app['security.encoder_factory'], false);
     });
 });
-
-// $app->register(new Silex\Provider\MonologServiceProvider(), array(
-// 'monolog.logfile' => __DIR__.'/development.log',
-// ));
-
-// $encoder = new MessageDigestPasswordEncoder();
-// $user = new \Entity\CMS\User ();
-// $user->setLogin ( 'admin' );
-// $user->setPasswd ( $encoder->encodePassword ( '123456', '' ) );
-// $app ['em']->persist ( $user );
-// $app ['em']->flush ();
-
-// $app->register(new Pz\Services\GenericSP());
-// $app->register(new Pz\Services\UserSP());
-
-// $app->mount('/Pz/contents/Orders', new Dft\Controllers\OrderCSP($app, array()));
-// $app->mount('/Pz/contents/ID photocopies', new Dft\Controllers\SubmissionCSP($app, array()));
-
-// $app->mount('/Pz/pages', new Pz\Controllers\PageCSP($app, array()));
-// $app->mount('/Pz/assets', new Pz\Controllers\AssetCSP($app, array()));
-// $app->mount('/Pz/contents', new Pz\Controllers\ContentCSP($app, array()));
-
 
 $app->register(new \Pz\Services\Generic());
 
