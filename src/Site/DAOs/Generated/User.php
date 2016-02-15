@@ -1,11 +1,11 @@
 <?php
 
 /**
- * 2016-02-04 21:41:45
+ * 2016-02-15 22:18:50
  */
 namespace Site\DAOs\Generated;
 
-class User extends \Pz\DAOs\DoctrineDAO {
+class User extends \Pz\DAOs\Content {
 
     function getFieldMap() {
         global $CMS_METAS;

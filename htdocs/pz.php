@@ -96,9 +96,10 @@ $app->register(new \Pz\Services\Generic());
 
 $app->mount('/pz/model', new Pz\Controllers\Model($app, array()));
 $app->mount('/pz/content', new Pz\Controllers\Content($app, array()));
+$app->mount('/pz/asset', new Pz\Controllers\Asset($app, array()));
 
-$app->mount('/pz', new Pz\Controllers\HomeCSP($app, array()));
-$app->mount('/pz_login', new Pz\Controllers\LoginCSP($app, array()));
+$app->mount('/pz', new Pz\Controllers\Home($app, array()));
+$app->mount('/pz_login', new Pz\Controllers\Login($app, array()));
 
 $app->error(function (\Exception $e, $code) use($app) {
     if ($code == 404) {
