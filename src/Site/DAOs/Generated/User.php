@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 2016-02-15 22:18:50
+ * 2016-02-17 20:16:36
  */
 namespace Site\DAOs\Generated;
 
@@ -27,4 +27,6 @@ class User extends \Pz\DAOs\Content {
     function getBaseQuery() {
         return 'entity.modelId = 1';
     }
+
+    
 }

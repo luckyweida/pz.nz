@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 2016-02-16 21:11:47
+ * 2016-02-17 20:16:36
  */
 namespace Site\DAOs\Generated;
 
@@ -23,4 +23,6 @@ class ImageSize extends \Pz\DAOs\Content {
     function getBaseQuery() {
         return 'entity.modelId = 4';
     }
+
+    
 }

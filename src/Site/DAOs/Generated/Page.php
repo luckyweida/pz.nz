@@ -1,22 +1,27 @@
 <?php
 
 /**
- * 2016-02-17 20:18:07
+ * 2016-02-17 21:39:05
  */
 namespace Site\DAOs\Generated;
 
-class Asset extends \Pz\DAOs\Content {
+class Page extends \Pz\DAOs\Content {
 
     function getFieldMap() {
         global $CMS_METAS;
         return array_merge(array(
             'title' => 'title', 
+			'active' => 'extra1', 
+			'type' => 'extra5', 
+			'category' => 'category', 
+			'url' => 'url', 
+			'content' => 'content', 
+			'categoryRank' => 'extra2', 
+			'categoryParent' => 'extra3', 
+			'pageTitle' => 'extra4', 
 			'description' => 'description', 
-			'isFolder' => 'extra1', 
-			'fileName' => 'extra2', 
-			'fileType' => 'extra4', 
-			'fileSize' => 'extra5', 
-			'fileLocation' => 'extra6', 
+			'redirectTo' => 'extra6', 
+			'template' => 'authorbio', 
         ), array_combine($CMS_METAS, $CMS_METAS));
     }
 
@@ -25,7 +30,7 @@ class Asset extends \Pz\DAOs\Content {
     }
 
     function getBaseQuery() {
-        return 'entity.modelId = 3';
+        return 'entity.modelId = 7';
     }
 
     
