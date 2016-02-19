@@ -93,6 +93,7 @@ $app['security.authentication_provider.dao._proto'] = $app->protect(function ($n
 });
 
 $app->register(new \Pz\Services\Generic());
+$app->register(new \Pz\Services\Get());
 
 $app->mount('/pz/model', new Pz\Controllers\Model($app, array()));
 $app->mount('/pz/content', new Pz\Controllers\Content($app, array()));

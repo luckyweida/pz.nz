@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 2016-02-17 21:39:05
+ * 2016-02-19 21:39:57
  */
 namespace Site\DAOs\Generated;
 
@@ -11,7 +11,7 @@ class Page extends \Pz\DAOs\Content {
         global $CMS_METAS;
         return array_merge(array(
             'title' => 'title', 
-			'active' => 'extra1', 
+			'isactive' => 'isactive', 
 			'type' => 'extra5', 
 			'category' => 'category', 
 			'url' => 'url', 
@@ -34,4 +34,8 @@ class Page extends \Pz\DAOs\Content {
     }
 
     
+	public function getIsactive() {
+		return $this->isactive == 1 ? true : false;
+	}
+
 }
