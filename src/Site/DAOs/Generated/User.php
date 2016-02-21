@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 2016-02-19 21:43:37
+ * 2016-02-20 11:30:36
  */
 namespace Site\DAOs\Generated;
 
@@ -13,8 +13,10 @@ class User extends \Pz\DAOs\Content {
             'title' => 'username', 
 			'password' => 'password', 
 			'password_' => 'extra1', 
+			'image' => 'image', 
 			'name' => 'name', 
 			'email' => 'email', 
+			'description' => 'description', 
 			'resetToken' => 'extra2', 
 			'resetDate' => 'date1', 
         ), array_combine($CMS_METAS, $CMS_METAS));
