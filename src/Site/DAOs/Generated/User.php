@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 2016-02-20 11:30:36
+ * 2016-02-24 20:49:55
  */
 namespace Site\DAOs\Generated;
 
@@ -13,9 +13,10 @@ class User extends \Pz\DAOs\Content {
             'title' => 'username', 
 			'password' => 'password', 
 			'password_' => 'extra1', 
-			'image' => 'image', 
 			'name' => 'name', 
 			'email' => 'email', 
+			'image' => 'image', 
+			'folder' => 'extra3', 
 			'description' => 'description', 
 			'resetToken' => 'extra2', 
 			'resetDate' => 'date1', 
