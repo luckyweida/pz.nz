@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 2016-02-24 20:49:37
+ * 2016-02-26 20:50:54
  */
 namespace Site\DAOs\Generated;
 
@@ -23,10 +23,6 @@ class Page extends \Pz\DAOs\Content {
 			'redirectTo' => 'extra6', 
 			'template' => 'authorbio', 
         ), array_combine($CMS_METAS, $CMS_METAS));
-    }
-
-    function getORMClass() {
-        return 'Pz\Entities\Content';
     }
 
     function getBaseQuery() {
