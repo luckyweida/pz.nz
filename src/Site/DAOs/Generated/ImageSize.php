@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 2016-02-24 20:49:37
+ * 2016-02-28 20:42:06
  */
 namespace Site\DAOs\Generated;
 
@@ -14,10 +14,6 @@ class ImageSize extends \Pz\DAOs\Content {
 			'width' => 'extra1', 
 			'description' => 'description', 
         ), array_combine($CMS_METAS, $CMS_METAS));
-    }
-
-    function getORMClass() {
-        return 'Pz\Entities\Content';
     }
 
     function getBaseQuery() {

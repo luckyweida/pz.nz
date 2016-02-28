@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 2016-02-24 20:49:55
+ * 2016-02-28 21:48:44
  */
 namespace Site\DAOs\Generated;
 
@@ -21,10 +21,6 @@ class User extends \Pz\DAOs\Content {
 			'resetToken' => 'extra2', 
 			'resetDate' => 'date1', 
         ), array_combine($CMS_METAS, $CMS_METAS));
-    }
-
-    function getORMClass() {
-        return 'Pz\Entities\Content';
     }
 
     function getBaseQuery() {

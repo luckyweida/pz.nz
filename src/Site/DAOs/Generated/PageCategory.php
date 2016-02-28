@@ -1,7 +1,7 @@
 <?php
 
 /**
- * 2016-02-24 20:49:37
+ * 2016-02-28 20:42:06
  */
 namespace Site\DAOs\Generated;
 
@@ -13,10 +13,6 @@ class PageCategory extends \Pz\DAOs\Content {
             'title' => 'title', 
 			'code' => 'extra1', 
         ), array_combine($CMS_METAS, $CMS_METAS));
-    }
-
-    function getORMClass() {
-        return 'Pz\Entities\Content';
     }
 
     function getBaseQuery() {
