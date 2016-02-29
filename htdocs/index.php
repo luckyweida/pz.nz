@@ -24,7 +24,7 @@ $app->register(new Provider\UrlGeneratorServiceProvider());
 $app->register(new Silex\Provider\ServiceControllerServiceProvider());
 
 $app->register(new Silex\Provider\TwigServiceProvider(), array(
-    'twig.path' => CMS . 'vendor/luckyweida/pz/views',
+    'twig.path' => __DIR__ . '/../views',
     'twig.form.templates' =>  array(
         'form.twig'
     ),
@@ -66,43 +66,18 @@ $connectionOptions = array(
 );
 $app['em'] = \Doctrine\ORM\EntityManager::create($connectionOptions, $config);
 
-//$app->register(new Silex\Provider\SecurityServiceProvider(), array(
-//    'security.firewalls' => array(
-//        'pz' => array(
-//            'pattern' => '^/pz/',
-//            'logout' => array(
-//                'logout_path' => '/pz/logout/',
-//                'target_url' => '/pz_login/'
-//            ),
-//            'form' => array(
-//                'login_path' => '/pz_login/',
-//                'check_path' => '/pz/login_check/',
-//                'default_target_path' => '/pz/'
-//            ),
-//            'users' => $app->share(function () use ($app) {
-//                return new Pz\Users\UserProvider($app['em']);
-//            })
-//        )
-//    )
-//));
-//
-//$app['security.authentication_provider.dao._proto'] = $app->protect(function ($name) use($app) {
-//    return $app->share(function () use($app, $name) {
-//        return new DaoAuthenticationProvider($app['security.user_provider.' . $name], $app['security.user_checker'], $name, $app['security.encoder_factory'], false);
-//    });
-//});
+
 
 $app->register(new \Pz\Services\Generic());
 $app->register(new \Pz\Services\Get());
 
 $app->mount('/asset', new Pz\Controllers\AssetView($app, array()));
+$app->mount('', new Pz\Controllers\Router($app, array()));
 
 
 $app->error(function (\Exception $e, $code) use($app) {
     if ($code == 404) {
         return new Symfony\Component\HttpFoundation\Response($app['twig']->render('404.twig', array()), 200);
-    } else if ($code == 401) {
-        return new Symfony\Component\HttpFoundation\Response($app['twig']->render('401.twig', array()), 200);
     }
 });
 
