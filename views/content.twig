@@ -1,0 +1,66 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+
+    <div id="main-wrapper">
+    <div id="main" class="container">
+        <div class="row 200%">
+
+            <div class="4u">
+                <!-- Sidebar -->
+                <div id="sidebar">
+                    <section>
+                        <header>
+                            <h2>Curabitur lorem nisl dolor</h2>
+                        </header>
+                        <ul class="style2">
+                            <li class="first">
+                                <h3>Aliquam erat volutpat class aptent</h3>
+                                <p><span class="date">6 hours ago</span><span class="comments"><a href="#">32 comments</a></span></p>
+                            </li>
+                            <li>
+                                <h3>Taciti sociosqu ad litora torquent conubia</h3>
+                                <p><span class="date">9 hours ago</span><span class="comments"><a href="#">28 comments</a></span></p>
+                            </li>
+                            <li>
+                                <h3>Nostra per inceptos himenaeos suspendisse</h3>
+                                <p><span class="date">9 hours ago</span><span class="comments"><a href="#">28 comments</a></span></p>
+                            </li>
+                            <li>
+                                <h3>Nostra per inceptos himenaeos suspendisse</h3>
+                                <p><span class="date">9 hours ago</span><span class="comments"><a href="#">28 comments</a></span></p>
+                            </li>
+                            <li>
+                                <h3>Quis elementum tempor sed ullamcorper</h3>
+                                <p><span class="date">9 hours ago</span><span class="comments"><a href="#">28 comments</a></span></p>
+                            </li>
+                        </ul>
+                        <a href="#" class="button icon icon-folder-open-alt">Browse Archives</a>
+                    </section>
+                </div>
+
+            </div>
+
+            <div class="8u important(collapse)">
+
+                <!-- Content -->
+                <div id="content">
+                    <section class="box post">
+                        {#<header>#}
+                        {#<h2>{{ pageBuilder.title }}</h2>#}
+                        {#</header>#}
+
+                        {% for itm in pageBuilder.content|json_decode %}
+                            <section>
+                                <h2>{{ itm.header }}</h2>
+                                <p>{{ itm.content|raw }}</p>
+                            </section>
+                        {% endfor %}
+                    </section>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+{% endblock %}
